@@ -26,8 +26,10 @@ class HomeController extends Controller
         $t_cpns = count(Pegawai::where('status_pegawai', 'CPNS')->get());
         $nonpns = count(NonPns::get());
         
-        $data = Berkala::orderBy('created_at','DESC')->paginate(10);
-        return view('superadmin.home',compact('data','t_pegawai','t_pns','t_cpns','nonpns'));
+        $data = Berkala::orderBy('status','ASC')->paginate(10);
+        $proses = count(Berkala::where('status', '!=', 3)->get());
+        $selesai = count(Berkala::where('status', '=', 3)->get());
+        return view('superadmin.home',compact('data','t_pegawai','t_pns','t_cpns','nonpns','proses','selesai'));
     }
 
     public function gantipass()

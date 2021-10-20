@@ -13,6 +13,6 @@ class NonPns extends Model
 
     public function unit_kerja()
     {
-        return $this->belongsTo(Unitkerja::class, 'unitkerja_id');
+        return $this->belongsTo(UnitKerja::class, 'unitkerja_id');
     }
 }

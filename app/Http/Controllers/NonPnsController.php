@@ -15,12 +15,6 @@ class NonPnsController extends Controller
         $data = NonPns::paginate(10);
 
         return view('superadmin.nonpns.index',compact('data'));
-        // foreach($data as $dt)
-        // {
-        //     $u = new UnitKerja;
-        //     $u->nama = $dt->unit_kerja;
-        //     $u->save();
-        // }
         
         toastr()->info('Unit Kerja Disimpan');
         return back();
